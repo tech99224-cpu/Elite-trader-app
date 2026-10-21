@@ -6,6 +6,15 @@ import sqlite3
 import time
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+import ccxt  # <--- ADD THIS LINE HERE
+import streamlit as st
+import pandas as pd
+import numpy as np
+import random
+import sqlite3
+import time
+import plotly.graph_objects as go
+from datetime import datetime, timedelta
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="Ultra AI Trader Pro", page_icon="🚀", layout="wide")
