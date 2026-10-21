@@ -93,9 +93,6 @@ st.title(f"🚀 Ultra AI Terminal - [{st.session_state.trading_mode}]")
 tab1, tab2, tab3 = st.tabs(["📈 Live Terminal", "🧪 Sandbox", "📊 History"])
 
 # --- TAB 1: LIVE TERMINAL ---
-with tab1:
-    col_chart, col_ai = st.columns([2, 1])
-    
     with col_chart:
     st.subheader(f"{selected_asset} Live Chart")
     try:
