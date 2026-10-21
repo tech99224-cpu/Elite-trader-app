@@ -97,25 +97,25 @@ with tab1:
     col_chart, col_ai = st.columns([2, 1])
     
     with col_chart:
-        st.subheader(f"{selected_asset} Live Chart")
-        try:
-            exchange = ccxt.binance()
-            ohlcv = exchange.fetch_ohlcv(selected_asset, timeframe='1m', limit=50)
-            df = pd.DataFrame(ohlcv, columns=['timestamp', 'Open', 'High', 'Low', 'Close', 'Volume'])
-            df['Date'] = pd.to_datetime(df['timestamp'], unit='ms')
-            
-            fig = go.Figure(data=[go.Candlestick(x=df['Date'], 
-                                                 open=df['Open'], 
-                                                 high=df['High'], 
-                                                 low=df['Low'], 
-                                                 close=df['Close'],
-                                                 increasing_line_color='#00FF00', 
-                                                 decreasing_line_color='#FF0000')])
-            fig.update_layout(template='plotly_dark', height=500, margin=dict(l=0, r=0, t=0, b=0), xaxis_rangeslider_visible=False)
-            st.plotly_chart(fig, use_container_width=True)
-            st.write(f"**Live Price:** ${df['Close'].iloc[-1]:,.2f}")
-        except Exception as e:
-            st.error(f"Could not connect to Binance. Error: {e}")
+    st.subheader(f"{selected_asset} Live Chart")
+    try:
+        exchange = ccxt.gateio() # <--- CHANGED TO GATE.IO HERE
+        ohlcv = exchange.fetch_ohlcv(selected_asset, timeframe='1m', limit=50)
+        df = pd.DataFrame(ohlcv, columns=['timestamp', 'Open', 'High', 'Low', 'Close', 'Volume'])
+        df['Date'] = pd.to_datetime(df['timestamp'], unit='ms')
+        
+        fig = go.Figure(data=[go.Candlestick(x=df['Date'], 
+                                             open=df['Open'], 
+                                             high=df['High'], 
+                                             low=df['Low'], 
+                                             close=df['Close'],
+                                             increasing_line_color='#00FF00', 
+                                             decreasing_line_color='#FF0000')])
+        fig.update_layout(template='plotly_dark', height=500, margin=dict(l=0, r=0, t=0, b=0), xaxis_rangeslider_visible=False)
+        st.plotly_chart(fig, use_container_width=True)
+        st.write(f"**Live Price:** ${df['Close'].iloc[-1]:,.2f}")
+    except Exception as e:
+        st.error(f"Could not connect. Error: {e}")
 
     with col_ai:
         st.subheader("🤖 AI Control")
