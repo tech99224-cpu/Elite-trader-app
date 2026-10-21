@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 st.set_page_config(page_title="Ultra AI Trader Pro", page_icon="🚀", layout="wide")
 
 # --- DATABASE SETUP ---
-conn = sqlite3.connect('trading_data.db', check_same_thread=False)
+conn = sqlite3.connect('trading_data_v2.db', check_same_thread=False)
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS wallet (id INTEGER PRIMARY KEY, balance REAL)''')
 c.execute('''CREATE TABLE IF NOT EXISTS trades (id INTEGER PRIMARY KEY AUTOINCREMENT, time TEXT, asset TEXT, action TEXT, profit REAL, balance REAL, mode TEXT)''')
