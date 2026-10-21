@@ -170,6 +170,6 @@ with tab3:
         def highlight_mode(val):
             color = 'green' if val == "DEMO" else 'red'
             return f'color: {color}'
-        st.dataframe(trades_df.style.applymap(highlight_mode, subset=['Mode']), use_container_width=True)
+        st.dataframe(trades_df.style.map(highlight_mode, subset=['Mode']), use_container_width=True)
     else:
         st.info("No trades yet.")
