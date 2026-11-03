@@ -113,7 +113,7 @@ with tab1:
         try:
             # Fetch live data based on market type
             if market_type == "Crypto":
-                exchange = ccxt.gateio() 
+                exchange = ccxt.kraken()
                 ohlcv = exchange.fetch_ohlcv(selected_asset, timeframe='1m', limit=50)
                 df = pd.DataFrame(ohlcv, columns=['timestamp', 'Open', 'High', 'Low', 'Close', 'Volume'])
                 df['Date'] = pd.to_datetime(df['timestamp'], unit='ms')
