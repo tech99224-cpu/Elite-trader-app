@@ -3,7 +3,5 @@ pandas
 numpy
 plotly
 ccxt
-sqlalchemy
-streamlit-lightweight-charts
-ta
 yfinance
+streamlit-lightweight-charts
