@@ -6,3 +6,4 @@ ccxt
 sqlalchemy
 streamlit-lightweight-charts
 ta
+tfinance
