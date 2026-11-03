@@ -5,3 +5,4 @@ plotly
 ccxt
 sqlalchemy
 streamlit-lightweight-charts
+ta
