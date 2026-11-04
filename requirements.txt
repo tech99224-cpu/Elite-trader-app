@@ -1,6 +1,1 @@
-streamlit
-pandas
-numpy
-yfinance
-ccxt
-streamlit-js-eval==0.1.7
+anthropic
