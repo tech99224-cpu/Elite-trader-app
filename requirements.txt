@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 plotly
-ccxt>=4.2.0
-yfinance
 streamlit-lightweight-charts
+streamlit-js-eval==0.1.7
